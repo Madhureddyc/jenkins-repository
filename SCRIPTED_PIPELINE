@@ -1,0 +1,14 @@
+node {
+    def mavenHome = tool name:"MAEN_HOME"
+    stage('GitClone'){
+        git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/ganeshsoftwaresolutions/maven-web-application.git'
+    }
+    stage('MavenBuild'){
+        sh "${mavenHome}/bin/mvn clean package"
+    }
+    stage('DeployToTomcat'){
+        sshagent(['TOMCAT_CREDS']) {
+            sh 'scp -o StrictHostKeyChecking=no target/maven-web-application.war ubuntu@43.205.128.80:/usr/local/tomcat9/webapps/ROOT.war'
+        }
+    }
+}

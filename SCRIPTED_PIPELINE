@@ -3,6 +3,7 @@ node {
     echo "GitHub Branch Name is ${env.BRANCH_NAME}"
     echo "JENKINS HOME is ${env.JENKINS_HOME}"
     echo "JENKINS URL is ${env.JENKINS_URL}"
+    echo "JOB Name is ${env.JOB_NAME}"
     stage('GitClone'){
         git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/ganeshsoftwaresolutions/maven-web-application.git'
     }

@@ -1,5 +1,7 @@
 node {
     def mavenHome = tool name:"MAEN_HOME"
+    echo "GitHub Branch Name is ${env.BRANCH_NAME}"
+    echo "JENKINS HOME is ${env.JENKINS_HOME}"
     stage('GitClone'){
         git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/ganeshsoftwaresolutions/maven-web-application.git'
     }

@@ -27,7 +27,7 @@ node {
     stage('DeployIntoAContainer'){
         sshagent(['TOMCAT_CREDS']) {
             sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 hostname -i'
-            sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 docker run -d --name java-tomcat-application -p 9090:8080 ganeshreddy001/javatomcatapplication:$BUILD_NUMBER'
+            sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 docker run -d --name java-tomcat-application-$BUILD_NUMBER -p 9090:8080 ganeshreddy001/javatomcatapplication:$BUILD_NUMBER'
             sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 docker ps -a'
         }
     }

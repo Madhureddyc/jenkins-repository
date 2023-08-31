@@ -15,4 +15,20 @@ node {
             sh 'scp -o StrictHostKeyChecking=no target/maven-web-application.war ubuntu@43.205.128.80:/usr/local/tomcat9/webapps/ROOT.war'
         }
     }
+    stage('DockerBuild'){
+        sh 'docker build -t ganeshreddy001/javatomcatapplication:$BUILD_NUMBER .'
+    }
+    stage('DockerPush'){
+        withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_CREDS', passwordVariable: 'Docker_Hub_Credentails', usernameVariable: 'Docker_Hub')]) {
+            sh 'docker login -u $Docker_Hub -p $Docker_Hub_Credentails'
+            sh 'docker push ganeshreddy001/javatomcatapplication:$BUILD_NUMBER'
+        }
+    }
+    stage('DeployIntoAContainer'){
+        sshagent(['TOMCAT_CREDS']) {
+            sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 hostname -i'
+            sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 docker run -d --name java-tomcat-application -p 9090:8080 ganeshreddy001/javatomcatapplication:$BUILD_NUMBER'
+            sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.128.80 docker ps -a'
+        }
+    }
 }

@@ -112,11 +112,11 @@
 	
 	<distributionManagement>
 	
-	    <repository>
+	    <!-- <repository>
 	      <id>nexus</id>
 	      <name>Ganesh Software Solutions Releases Nexus Repository</name>
 	      <url>http://3.110.41.157:9091/ganeshreddysoftwaresolutions/repository/mavenjavaapplication-releaserepo/</url>
-	    </repository>
+	    </repository> -->
 	    
 	   <!-- <snapshotRepository>
 	      <id>nexus</id>

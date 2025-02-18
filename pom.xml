@@ -110,21 +110,21 @@
 		
 	</dependencies>
 	
-	<distributionManagement>
+	<!-- <distributionManagement>
 	
-	    <!-- <repository>
+	    <repository>
 	      <id>nexus</id>
 	      <name>Ganesh Software Solutions Releases Nexus Repository</name>
 	      <url>http://3.110.41.157:9091/ganeshreddysoftwaresolutions/repository/mavenjavaapplication-releaserepo/</url>
-	    </repository> -->
+	    </repository>
 	    
-	   <!-- <snapshotRepository>
+	   <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Ganesh Software Solutions Snapshot Nexus Repository </name>
 	      <url>http://3.110.41.157:9091/ganeshreddysoftwaresolutions/repository/mavenjavaapplication-snapshotrepo/</url>
-	    </snapshotRepository> -->
+	    </snapshotRepository>
 	    
-	</distributionManagement>
+	</distributionManagement> -->
 	
 	<build>
 		<finalName>maven-web-application</finalName>

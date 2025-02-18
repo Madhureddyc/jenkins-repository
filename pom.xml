@@ -110,22 +110,6 @@
 		
 	</dependencies>
 	
-	<!-- <distributionManagement>
-	
-	    <repository>
-	      <id>nexus</id>
-	      <name>Ganesh Software Solutions Releases Nexus Repository</name>
-	      <url>http://3.110.41.157:9091/ganeshreddysoftwaresolutions/repository/mavenjavaapplication-releaserepo/</url>
-	    </repository>
-	    
-	   <snapshotRepository>
-	      <id>nexus</id>
-	      <name>Ganesh Software Solutions Snapshot Nexus Repository </name>
-	      <url>http://3.110.41.157:9091/ganeshreddysoftwaresolutions/repository/mavenjavaapplication-snapshotrepo/</url>
-	    </snapshotRepository>
-	    
-	</distributionManagement> -->
-	
 	<build>
 		<finalName>maven-web-application</finalName>
 		
@@ -134,7 +118,7 @@
 			<plugin>
       				<groupId>org.apache.maven.plugins</groupId>
         			<artifactId>maven-war-plugin</artifactId>
-        			<version>3.3.1</version> <!-- Use a compatible version -->
+        			<version>3.1.2</version> <!-- Use a compatible version -->
     			</plugin>
 
 			<plugin>
